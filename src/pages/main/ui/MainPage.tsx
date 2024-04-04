@@ -5,11 +5,14 @@ import { useAppSelector } from "@/app/appStore";
 import { useDebounce } from "@/shared/hooks/useDebounce";
 
 const MainPage = () => {
-  const keywords = useAppSelector((state) => state.search.keywords);
+  const keywords = useAppSelector((state) => state.search.filters.keywords);
+  const currentWeather = useAppSelector((state) => state.weather.currentWeather);
   const debouncedKeywords = useDebounce(keywords);
-  const { data, isLoading } = useGetCurrentWeatherQuery(debouncedKeywords);
+  const { isLoading } = useGetCurrentWeatherQuery(debouncedKeywords);
 
-  return <main className={styles.main}>{!isLoading && data && <WeatherCard data={data} />}</main>;
+  return (
+    <main className={styles.main}>{!isLoading && currentWeather && <WeatherCard data={currentWeather} />}</main>
+  );
 };
 
 export default MainPage;

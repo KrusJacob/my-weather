@@ -54,3 +54,7 @@ export interface Sys {
   sunrise: number;
   sunset: number;
 }
+
+export interface IFilters {
+  keywords: string;
+}
