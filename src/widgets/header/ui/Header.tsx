@@ -3,7 +3,7 @@ import styles from "./styles.module.css";
 import { useAppDispatch, useAppSelector } from "@/app/appStore";
 
 const Header = () => {
-  const keywords = useAppSelector((state) => state.search.keywords);
+  const keywords = useAppSelector((state) => state.search.filters.keywords);
   const dispatch = useAppDispatch();
 
   return (
