@@ -1,3 +1,4 @@
+import { weatherIcon } from "@/shared/assets";
 import styles from "./styles.module.css";
 
 interface Props {
@@ -8,6 +9,7 @@ interface Props {
 const Search = ({ keywords, setKeywords }: Props) => {
   return (
     <div className={styles.search}>
+      <img className={styles.icon} src={weatherIcon.search} alt="search" />
       <input
         className={styles.input}
         type="search"
