@@ -41,7 +41,7 @@ const WeatherCard = ({ data }: Props) => {
             <p>wind speed</p>
             <div className={styles.description}>
               <img width={24} src={weatherIcon.wind} alt="wind" />
-              <span>{data.wind.speed}km/h</span>
+              <span>{data.wind.speed} m/s</span>
             </div>
           </div>
         </div>
