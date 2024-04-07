@@ -7,6 +7,8 @@
 .head {
     display: flex;
     gap: 8px;
+    font-size: 20px;
+    font-weight: 700;
     border-bottom: 1px solid rgba(0, 0, 0, 0.5);
     justify-content: space-between;
     align-items: center;
@@ -18,16 +20,20 @@
 
 .body {
     display: grid;
-    grid-template-columns: 190px 130px;
-    gap: 18px;
-    font-size: 20px;
+    grid-template-columns: minmax(180px, 1fr);
+    gap: 12px;
+    font-size: 22px;
+}
+.current {
+    grid-template-columns: 200px 140px;
+    font-weight: 700;
 }
 
 .info {
     font-size: 16px;
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 12px;
     justify-content: flex-end;
 }
 
@@ -50,4 +56,20 @@
     align-items: center;
     padding: 2px 8px;
     background-color: #c4e9f8;
+}
+
+@media (width < 568px) {
+    .current {
+        grid-template-columns: minmax(220px, 1fr);
+    }
+    .forecast {
+        grid-template-columns: minmax(150px, 1fr);
+        font-size: 18px;
+    }
+    .icon {
+        width: 120px;
+    }
+    .temp {
+        font-size: 30px;
+    }
 }

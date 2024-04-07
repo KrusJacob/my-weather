@@ -58,3 +58,42 @@ export interface Sys {
 export interface IFilters {
   keywords: string;
 }
+
+export interface IForecastWeatherResponce {
+  cod: string;
+  message: number;
+  cnt: number;
+  list: IForecastWeather[];
+  city: ICity;
+}
+
+interface ICity {
+  id: number;
+  name: string;
+  coord: Coord;
+  country: string;
+  population: number;
+  timezone: number;
+  sunrise: number;
+  sunset: number;
+}
+
+export interface IForecastWeather {
+  dt: number;
+  main: Main;
+  weather: Weather[];
+  clouds: Clouds;
+  wind: Wind;
+  visibility: number;
+  pop: number;
+  sys: ForecastSys;
+  dt_txt: string;
+}
+
+export interface ForecastMain extends Main {
+  temp_kf: number;
+}
+
+export interface ForecastSys {
+  pod: string;
+}
