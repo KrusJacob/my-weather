@@ -1,0 +1,21 @@
+.temp {
+    font-size: 36px;
+    font-weight: 700;
+    padding: 2px 8px;
+    background-color: #c4f8d4;
+}
+
+.description {
+    display: flex;
+    font-weight: 700;
+    gap: 6px;
+    align-items: center;
+    padding: 2px 8px;
+    background-color: #c4e9f8;
+}
+
+@media (width < 568px) {
+    .temp {
+        font-size: 30px;
+    }
+}

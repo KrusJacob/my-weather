@@ -1,13 +1,12 @@
-import { formatWeather } from "@/shared/helpers/formatWeather";
 import { IForecastWeather, IWeather } from "@/shared/interfaces";
 import styles from "./styles.module.css";
-import { weatherIcon } from "@/shared/assets";
 import { formatDateSlice } from "@/shared/helpers/formatDateSlice";
-import { isCurrentWeather } from "../helper/isCurrentWeather";
+import { isCurrentWeather } from "../../helper/isCurrentWeather";
+import { IWeatherCard, WeatherData } from "../..";
 
 interface Props {
   data: IWeather | IForecastWeather;
-  type?: "current" | "forecast";
+  type?: IWeatherCard;
 }
 
 const WeatherCard = ({ data, type = "current" }: Props) => {
@@ -35,22 +34,16 @@ const WeatherCard = ({ data, type = "current" }: Props) => {
             alt={`${data.weather[0].description}`}
           />
           {type === "current" && <p>{data.weather[0].description}</p>}
-          <p className={styles.temp}>{formatWeather(data.main.temp)}</p>
+          <WeatherData data={data.main.temp} />
         </div>
         <div className={styles.info}>
           <div>
             {type === "current" && <p>humidity</p>}
-            <div className={styles.description}>
-              <img width={24} src={weatherIcon.humidity} alt="humidity" />
-              <span>{data.main.humidity}%</span>
-            </div>
+            <WeatherData type="humidity" data={data.main.humidity} />
           </div>
           <div>
             {type === "current" && <p>wind speed</p>}
-            <div className={styles.description}>
-              <img width={24} src={weatherIcon.wind} alt="wind" />
-              <span>{data.wind.speed} m/s</span>
-            </div>
+            <WeatherData type="windSpeed" data={data.wind.speed} />
           </div>
         </div>
       </div>
