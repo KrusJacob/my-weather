@@ -1,7 +1,13 @@
 .main {
     display: flex;
     justify-content: center;
-    flex-direction: column;
-    gap: 12px;
-    align-items: center;
+
+    gap: 20px;
+}
+
+@media (width < 1200px) {
+    .main {
+        flex-direction: column;
+        align-items: center;
+    }
 }

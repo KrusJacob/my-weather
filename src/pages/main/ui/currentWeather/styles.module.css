@@ -1,7 +1,9 @@
 .current {
     display: flex;
-    justify-content: center;
     flex-direction: column;
     gap: 16px;
     align-items: center;
+    max-width: 400px;
+    width: 100%;
+    /* margin: 0 auto; */
 }

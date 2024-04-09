@@ -14,8 +14,8 @@ const CurrentWeather = () => {
 
   return (
     <div className={styles.current}>
-      <SelectedСity cityName={currentWeather?.name || ""} />
       <WeatherFilter keywords={keywords} isError={isError} errorMessage={debouncedKeywords} />
+      <SelectedСity cityName={currentWeather?.name || ""} />
       {!isLoading && currentWeather && <WeatherCard data={currentWeather} />}
     </div>
   );
