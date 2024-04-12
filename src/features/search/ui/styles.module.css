@@ -5,18 +5,19 @@
     position: relative;
     align-items: center;
     padding: 8px 0 8px 0;
+    backdrop-filter: blur(120px);
 }
 
 .input {
     position: absolute;
-    border: 1px solid blue;
+    border: var(--main-border);
     width: 100%;
     padding: 8px 8px 8px 36px;
     font-size: 18px;
     background-color: rgba(0, 0, 255, 0.05);
 }
 .input:focus {
-    box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
+    box-shadow: 0 0 5px 5px rgba(0, 60, 255, 0.75);
     outline: none;
 }
 
