@@ -1,5 +1,6 @@
 .selectedСity {
     border: var(--main-border);
+    box-shadow: var(--main-box-shadow);
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -7,6 +8,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
     padding: 8px;
     width: 100%;
+    backdrop-filter: blur(20px);
 }
 
 .name {

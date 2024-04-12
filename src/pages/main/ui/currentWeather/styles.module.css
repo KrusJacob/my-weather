@@ -5,5 +5,10 @@
     align-items: center;
     max-width: 400px;
     width: 100%;
-    /* margin: 0 auto; */
+}
+
+@media (width < 567px) {
+    .current {
+        max-width: 300px;
+    }
 }
