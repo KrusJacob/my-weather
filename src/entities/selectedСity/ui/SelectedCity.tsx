@@ -7,7 +7,7 @@ interface Props {
 const SelectedСity = ({ cityName }: Props) => {
   return (
     <div className={styles.selectedСity}>
-      <p>selected Сity:</p>
+      <p>Weather in:</p>
       <h3 className={styles.name}>{cityName}</h3>
     </div>
   );
