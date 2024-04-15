@@ -1,0 +1,8 @@
+.skeleton {
+    width: 100%;
+    padding-top: 80%;
+    position: relative;
+    border: var(--main-border);
+    box-shadow: var(--main-box-shadow);
+    background-color: rgba(179, 255, 255, 0.4);
+}

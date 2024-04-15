@@ -5,6 +5,7 @@
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
     font-size: 20px;
     animation: 0.5s linear 0s showIn;
+    background: rgba(255, 255, 255, 0.35);
 }
 
 @keyframes showIn {
