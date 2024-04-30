@@ -3,13 +3,18 @@ import styles from "./styles.module.css";
 import { formatDateSlice } from "@/shared/helpers/formatDateSlice";
 import { isCurrentWeather } from "../../helper/isCurrentWeather";
 import { IWeatherCard, WeatherData } from "../..";
+import withSkeleton from "@/shared/hocs/withSkeleton";
 
 interface Props {
-  data: IWeather | IForecastWeather;
+  data?: IWeather | IForecastWeather | null;
   type?: IWeatherCard;
 }
 
 const WeatherCard = ({ data, type = "current" }: Props) => {
+  if (!data) {
+    return;
+  }
+
   return (
     <div className={styles.card}>
       <div className={styles.head}>
@@ -51,4 +56,4 @@ const WeatherCard = ({ data, type = "current" }: Props) => {
   );
 };
 
-export default WeatherCard;
+export default withSkeleton(WeatherCard);
