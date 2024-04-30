@@ -14,7 +14,9 @@ const ForecastWeather = () => {
   return (
     <div className={styles.wrapper}>
       {!isLoading &&
-        filterWeatherByDay(forecastWeathers).map((slice, i) => <ForecastDayWeather key={i} items={slice} />)}
+        filterWeatherByDay(forecastWeathers).map((slice, i) => (
+          <ForecastDayWeather isLoading={isLoading} key={i} items={slice} />
+        ))}
     </div>
   );
 };

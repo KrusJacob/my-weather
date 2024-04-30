@@ -8,9 +8,10 @@ import { ArrowWrapper } from "@/shared/ui";
 
 interface Props {
   items: IForecastWeather[];
+  isLoading: boolean;
 }
 
-const ForecastDayWeather = ({ items }: Props) => {
+const ForecastDayWeather = ({ items, isLoading }: Props) => {
   const [isShowForecast, setIsShowForecast] = useState(false);
 
   return (
@@ -30,7 +31,7 @@ const ForecastDayWeather = ({ items }: Props) => {
       {isShowForecast && (
         <div className={styles.list}>
           {items.map((item) => (
-            <WeatherCard key={item.dt} data={item} type="forecast" />
+            <WeatherCard isLoading={isLoading} key={item.dt} data={item} type="forecast" />
           ))}
         </div>
       )}
