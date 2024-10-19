@@ -16,6 +16,7 @@
 
 @media (width < 568px) {
     .description {
-        font-size: 14px;
+        font-size: 12px;
+        gap: 4px;
     }
 }

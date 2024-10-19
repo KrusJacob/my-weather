@@ -4,9 +4,7 @@ import WeatherMiniCard from "@/entities/weather/ui/WeatherMiniCard/WeatherMiniCa
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
-
 import { Navigation } from "swiper/modules";
-import { useRef } from "react";
 
 interface Props {
   items: IForecastWeather[];
@@ -14,16 +12,12 @@ interface Props {
 }
 
 const ForecastDayWeather = ({ items, isLoading }: Props) => {
-  const ref = useRef(null);
   if (!items) {
     return null;
   }
 
-  console.log(ref);
-
   return (
     <Swiper
-      ref={ref}
       className={styles.forecast}
       spaceBetween={20}
       modules={[Navigation]}

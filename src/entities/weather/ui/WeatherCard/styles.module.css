@@ -23,6 +23,7 @@
 }
 
 .body {
+    margin: 10px 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -51,6 +52,6 @@
 
 @media (width < 568px) {
     .info {
-        gap: 6px;
+        gap: 0;
     }
 }

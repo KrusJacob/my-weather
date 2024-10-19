@@ -6,13 +6,13 @@ import { WeatherData } from "../..";
 import withSkeleton from "@/shared/hocs/withSkeleton";
 import { formatWeather } from "@/shared/helpers/formatWeather";
 import ForecastWeather from "@/pages/main/ui/forecastWeather/ForecastWeather";
+import { memo } from "react";
 
 interface Props {
   data?: IWeather | null;
 }
 
-const WeatherCard = ({ data }: Props) => {
-  console.log(data);
+const WeatherCard = memo(({ data }: Props) => {
   if (!data) {
     return;
   }
@@ -43,6 +43,6 @@ const WeatherCard = ({ data }: Props) => {
       <ForecastWeather />
     </div>
   );
-};
+});
 
 export default withSkeleton(WeatherCard);
