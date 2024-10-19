@@ -2,58 +2,55 @@
     border: var(--main-border);
     box-shadow: var(--main-box-shadow);
     padding: 10px;
-    background-color: rgba(179, 255, 255, 0.4);
-    /* backdrop-filter: blur(10px); */
+    background-color: rgba(69, 142, 237, 0.8);
     width: 100%;
+    color: white;
+    border-radius: 12px;
 }
 
 .head {
     display: flex;
     gap: 8px;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
-    border-bottom: var(--main-border);
     justify-content: space-between;
     align-items: center;
+    color: var(--color-light-primary);
 }
-
-.name {
-    font-size: 28px;
+.city {
+    color: white;
+    font-size: 24px;
 }
 
 .body {
-    display: grid;
-    grid-template-columns: minmax(140px, 1fr);
-    gap: 12px;
-    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
 }
-.current {
-    grid-template-columns: 210px 150px;
-    font-weight: 700;
+.temp {
+    font-size: 46px;
+    font-weight: 600;
+}
+.icon {
+    width: 100px;
+    object-fit: cover;
+}
+.divider {
+    margin: 18px 0;
+    height: 1px;
+    width: 100%;
+    background-color: rgb(189, 213, 248);
 }
 
 .info {
     font-size: 16px;
     display: flex;
-    flex-direction: column;
     gap: 12px;
-    justify-content: flex-end;
-}
-
-.icon {
-    width: 150px;
-    object-fit: cover;
 }
 
 @media (width < 568px) {
-    .current {
-        grid-template-columns: minmax(220px, 300px);
-    }
-    .forecast {
-        grid-template-columns: minmax(120px, 1fr);
-        font-size: 18px;
-    }
-    .forecast .icon {
-        width: 120px;
+    .info {
+        gap: 6px;
     }
 }

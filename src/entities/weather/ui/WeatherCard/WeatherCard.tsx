@@ -1,16 +1,18 @@
-import { IForecastWeather, IWeather } from "@/shared/interfaces";
+import { IWeather } from "@/shared/interfaces";
 import styles from "./styles.module.css";
 import { formatDateSlice } from "@/shared/helpers/formatDateSlice";
-import { isCurrentWeather } from "../../helper/isCurrentWeather";
-import { IWeatherCard, WeatherData } from "../..";
+
+import { WeatherData } from "../..";
 import withSkeleton from "@/shared/hocs/withSkeleton";
+import { formatWeather } from "@/shared/helpers/formatWeather";
+import ForecastWeather from "@/pages/main/ui/forecastWeather/ForecastWeather";
 
 interface Props {
-  data?: IWeather | IForecastWeather | null;
-  type?: IWeatherCard;
+  data?: IWeather | null;
 }
 
-const WeatherCard = ({ data, type = "current" }: Props) => {
+const WeatherCard = ({ data }: Props) => {
+  console.log(data);
   if (!data) {
     return;
   }
@@ -18,40 +20,27 @@ const WeatherCard = ({ data, type = "current" }: Props) => {
   return (
     <div className={styles.card}>
       <div className={styles.head}>
-        {isCurrentWeather(data) ? (
-          <>
-            <p>Now</p>
-            <p>{formatDateSlice(new Date())}</p>
-          </>
-        ) : (
-          <>
-            <p></p>
-            <p>{`${formatDateSlice(new Date(data.dt_txt))}`}</p>
-          </>
-        )}
+        <p className={styles.city}>{data.name}</p>
+        <p>Now {formatDateSlice(new Date())}</p>
       </div>
-      <div className={`${styles.body} ${type === "current" ? styles.current : styles.forecast}`}>
-        <div>
-          <img
-            className={styles.icon}
-            src={`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
-            title={`${data.weather[0].description}`}
-            alt={`${data.weather[0].description}`}
-          />
-          {type === "current" && <p>{data.weather[0].description}</p>}
-          <WeatherData data={data.main.temp} />
-        </div>
-        <div className={styles.info}>
-          <div>
-            {type === "current" && <p>humidity</p>}
-            <WeatherData type="humidity" data={data.main.humidity} />
-          </div>
-          <div>
-            {type === "current" && <p>wind speed</p>}
-            <WeatherData type="windSpeed" data={data.wind.speed} />
-          </div>
-        </div>
+      <div className={styles.body}>
+        <p className={styles.temp}>{formatWeather(data.main.temp)}</p>
+        <img
+          className={styles.icon}
+          src={`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
+          title={`${data.weather[0].description}`}
+          alt={`${data.weather[0].description}`}
+        />
+        <p>{data.weather[0].description}</p>
       </div>
+      <div className={styles.info}>
+        <WeatherData type="humidity" data={data.main.humidity} />
+        <WeatherData type="windSpeed" data={data.wind.speed} />
+        <WeatherData type="pressure" data={data.main.pressure} />
+      </div>
+      <div className={styles.divider}></div>
+
+      <ForecastWeather />
     </div>
   );
 };

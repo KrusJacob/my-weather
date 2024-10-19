@@ -11,11 +11,11 @@
     gap: 6px;
     align-items: center;
     padding: 2px 8px;
-    background-color: #c4e9f8;
+    color: white;
 }
 
 @media (width < 568px) {
-    .temp {
-        font-size: 30px;
+    .description {
+        font-size: 14px;
     }
 }

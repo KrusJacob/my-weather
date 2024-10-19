@@ -16,10 +16,6 @@ export function filterWeatherByDay(arr: IForecastWeather[]) {
       dayArr.push(arr[i]);
     }
     currentDay = day;
-
-    // if (i + 1 === arr.length) {
-    //   res.push(dayArr);
-    // }
   }
 
   return res;

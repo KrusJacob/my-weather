@@ -1,23 +1,24 @@
 .search {
     display: flex;
-    max-width: 400px;
     width: 100%;
     position: relative;
     align-items: center;
     padding: 8px 0 8px 0;
     backdrop-filter: blur(120px);
+    border-radius: 8px;
 }
 
 .input {
+    border-radius: inherit;
     position: absolute;
     border: var(--main-border);
     width: 100%;
-    padding: 8px 8px 8px 36px;
+    padding: 8px 8px 8px 38px;
     font-size: 18px;
-    background-color: rgba(0, 0, 255, 0.05);
+    background-color: rgba(198, 225, 248, 0.8);
 }
 .input:focus {
-    box-shadow: 0 0 5px 5px rgba(0, 60, 255, 0.75);
+    box-shadow: 0 0 3px 3px rgba(0, 60, 255, 0.75);
     outline: none;
 }
 

@@ -1,10 +1,12 @@
 import { IForecastWeather } from "@/shared/interfaces";
 import styles from "./styles.module.css";
-import { WeatherCard, WeatherData } from "@/entities/weather";
-import { formatDatebyMounth } from "@/shared/helpers/formatDatebyMounth";
-import { isToday } from "@/shared/helpers/isToday";
-import { useState } from "react";
-import { ArrowWrapper } from "@/shared/ui";
+import WeatherMiniCard from "@/entities/weather/ui/WeatherMiniCard/WeatherMiniCard";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+
+import { Navigation } from "swiper/modules";
+import { useRef } from "react";
 
 interface Props {
   items: IForecastWeather[];
@@ -12,30 +14,35 @@ interface Props {
 }
 
 const ForecastDayWeather = ({ items, isLoading }: Props) => {
-  const [isShowForecast, setIsShowForecast] = useState(false);
+  const ref = useRef(null);
+  if (!items) {
+    return null;
+  }
+
+  console.log(ref);
 
   return (
-    <>
-      <div className={styles.head} onClick={() => setIsShowForecast(!isShowForecast)}>
-        {isToday(items[0].dt_txt) ? (
-          <ArrowWrapper isArrowUp={isShowForecast}>
-            <p>Today</p>
-          </ArrowWrapper>
-        ) : (
-          <ArrowWrapper isArrowUp={isShowForecast}>
-            <h4>{formatDatebyMounth(new Date(items[0].dt_txt))}</h4>
-            <WeatherData data={items[5].main.temp} />
-          </ArrowWrapper>
-        )}
-      </div>
-      {isShowForecast && (
-        <div className={styles.list}>
-          {items.map((item) => (
-            <WeatherCard isLoading={isLoading} key={item.dt} data={item} type="forecast" />
-          ))}
-        </div>
-      )}
-    </>
+    <Swiper
+      ref={ref}
+      className={styles.forecast}
+      spaceBetween={20}
+      modules={[Navigation]}
+      navigation
+      breakpoints={{
+        240: {
+          slidesPerView: 4,
+        },
+        567: {
+          slidesPerView: 5,
+        },
+      }}
+    >
+      {items.map((item) => (
+        <SwiperSlide key={item.dt_txt}>
+          <WeatherMiniCard item={item} key={item.dt_txt} />
+        </SwiperSlide>
+      ))}
+    </Swiper>
   );
 };
 

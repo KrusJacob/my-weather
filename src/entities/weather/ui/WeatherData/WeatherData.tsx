@@ -1,7 +1,8 @@
-import { formatWeather } from "@/shared/helpers/formatWeather";
 import styles from "./styles.module.css";
 import { IWeatherData } from "../..";
-import { weatherIcon } from "@/shared/assets";
+import { LuWind } from "react-icons/lu";
+import { IoWaterOutline } from "react-icons/io5";
+import { VscCompass } from "react-icons/vsc";
 
 interface Props {
   data: number;
@@ -9,22 +10,27 @@ interface Props {
 }
 
 const WeatherData = ({ data, type = "temp" }: Props) => {
-  if (type === "temp") {
-    return <div className={styles.temp}>{formatWeather(data)}</div>;
-  }
   if (type === "humidity") {
     return (
-      <div className={styles.description}>
-        <img width={24} src={weatherIcon.humidity} alt="humidity" />
+      <div title="humidity" className={styles.description}>
+        <IoWaterOutline size={26} />
         <span>{data}%</span>
       </div>
     );
   }
   if (type === "windSpeed") {
     return (
-      <div className={styles.description}>
-        <img width={24} src={weatherIcon.wind} alt="wind" />
+      <div title="windSpeed" className={styles.description}>
+        <LuWind size={26} />
         <span>{data} m/s</span>
+      </div>
+    );
+  }
+  if (type === "pressure") {
+    return (
+      <div title="pressure" className={styles.description}>
+        <VscCompass size={26} />
+        <span>{data} hPa</span>
       </div>
     );
   }
