@@ -11,7 +11,7 @@ interface Props {
   isLoading: boolean;
 }
 
-const ForecastDayWeather = ({ items, isLoading }: Props) => {
+const ForecastDayWeather = ({ items }: Props) => {
   if (!items) {
     return null;
   }
