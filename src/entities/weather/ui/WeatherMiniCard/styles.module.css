@@ -1,0 +1,35 @@
+.mini_card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: show 1s;
+    min-height: 100px;
+    color: var(--color-light-primary);
+}
+
+.icon {
+    width: 60px;
+}
+
+.temp {
+    color: var(--color-primary);
+}
+
+@media (width < 567px) {
+    .mini_card {
+        font-size: 14px;
+    }
+    .icon {
+        width: 50px;
+    }
+}
+
+@keyframes show {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

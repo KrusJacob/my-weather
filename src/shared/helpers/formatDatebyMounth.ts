@@ -1,6 +1,6 @@
 export const formatDatebyMounth = (date: Date) => {
   const options: Intl.DateTimeFormatOptions = {
-    month: "short",
+    month: "numeric",
     day: "numeric",
   };
   return date.toLocaleDateString("en-US", options);
