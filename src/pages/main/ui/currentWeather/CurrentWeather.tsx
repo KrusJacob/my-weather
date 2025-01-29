@@ -4,7 +4,6 @@ import styles from "./styles.module.css";
 import { useAppSelector } from "@/app/appStore";
 import { useDebounce } from "@/shared/hooks/useDebounce";
 import { WeatherFilter } from "@/widgets/filter";
-import { SelectedСity } from "@/entities/selectedСity";
 
 const CurrentWeather = () => {
   const keywords = useAppSelector((state) => state.search.filters.keywords);
@@ -15,8 +14,7 @@ const CurrentWeather = () => {
   return (
     <div className={styles.current}>
       <WeatherFilter keywords={keywords} isError={isError} errorMessage={debouncedKeywords} />
-      <SelectedСity isLoading={isLoading} cityName={currentWeather?.name || ""} />
-      {<WeatherCard isLoading={isLoading} data={currentWeather} />}
+      <WeatherCard isLoading={isLoading} data={currentWeather} />
     </div>
   );
 };

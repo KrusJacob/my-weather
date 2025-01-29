@@ -4,5 +4,5 @@ export const formatWeather = (value: number) => {
   if (roundedValue > 0) {
     modifier = "+";
   }
-  return `${modifier}${roundedValue}°C`;
+  return `${modifier}${roundedValue}°`;
 };
