@@ -14,7 +14,7 @@ interface Props {
 
 const WeatherCard = memo(({ data }: Props) => {
   if (!data) {
-    return;
+    return <div style={{ fontSize: "20px" }}>Сouldn't get the data</div>;
   }
 
   return (

@@ -17,7 +17,7 @@
 
 body {
   min-height: 100vh;
-  background-image: url("@/shared/assets/bg/bg_weather.jpg");
+  background-image: url("/assets/images/bg_weather.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;

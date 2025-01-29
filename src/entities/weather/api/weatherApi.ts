@@ -16,7 +16,7 @@ export const weatherApi = createApi({
           url: "weather",
           params: {
             units: "metric",
-            q: city || DEFAULT_CITY,
+            q: city?.toLocaleLowerCase() || DEFAULT_CITY,
             appid: API_KEY,
           },
         };
