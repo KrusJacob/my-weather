@@ -7,6 +7,7 @@ import { useDebounce } from "@/shared/hooks/useDebounce";
 import { formatDatebyMounth } from "@/shared/helpers/formatDatebyMounth";
 import { useEffect, useState } from "react";
 import { IForecastWeather } from "@/shared/interfaces";
+import WeatherChart from "@/entities/weather/ui/WeatherChart/WeatherChart";
 
 const ForecastWeather = () => {
   const [tab, setTab] = useState(0);
@@ -35,6 +36,7 @@ const ForecastWeather = () => {
       </div>
       <div>
         <ForecastDayWeather isLoading={isLoading} items={forecast[tab]} />
+        <WeatherChart forecastWeather={forecast[tab]} />
       </div>
     </div>
   );
